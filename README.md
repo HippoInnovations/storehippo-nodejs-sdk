@@ -2,12 +2,13 @@ storehippo-nodejs-sdk
 ================
 
 
-To access the storehippo api of any store by using access key
+The preliminary version of StoreHippo SDK.
+
 
 ## Setup
 
 ~~~
-var storehippoSdk = require('storehippo-nodejs-sdk')({
+var storehippo = require('storehippo-nodejs-sdk')({
 		storename : <your-store-name>, 
 		access_key : <your-access-key>
 	});
@@ -27,7 +28,7 @@ var request = {
 
 //  "array-of-filters" == [{field : "field name", value : "field-value", operator : "operator(equal, less_than, greater_than)"}]
 
-storehippoSdk.list(request, function(err, response){
+storehippo.list(request, function(err, response){
     if(err) throw err;
     console.log(response);
 })
@@ -41,7 +42,7 @@ var request = {
     data : "your-entity-data-object"
 }
 
-storehippoSdk.add(request, function(err, response){
+storehippo.add(request, function(err, response){
     if(err) throw err;
     console.log(response);
 })
@@ -55,7 +56,7 @@ var request = {
     recordId : "_id-of-record"
 }
 
-storehippoSdk.get(request, function(err, response){
+storehippo.get(request, function(err, response){
     if(err) throw err;
     console.log(response);
 })
@@ -69,7 +70,7 @@ var request = {
     recordId : "_id-of-record"
 }
 
-storehippoSdk.del(request, function(err, response){
+storehippo.del(request, function(err, response){
     if(err) throw err;
     console.log(response);
 })
@@ -84,7 +85,7 @@ var request = {
     data : "your-entity-data-object-to-be-updated"
 }
 
-storehippoApi.update(request, function(err, response){
+storehippo.update(request, function(err, response){
     if(err) throw err;
     console.log(response);
 })
