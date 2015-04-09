@@ -153,7 +153,7 @@ storehippo.get(request, function(err, response){
 })
 ~~~
 
-##  10. to detete field data of a record of an entity
+##  10. to delete field data of a record of an entity
 
 ~~~
 var request = {
