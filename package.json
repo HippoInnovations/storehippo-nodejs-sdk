@@ -1,20 +1,21 @@
 {
-    "name": "storehippo-nodejs-sdk",
-    "version": "1.0.4",
-    "description": "Access-key Module for storehippo API",
-    "main": "./lib/storehippo",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/manusis/storehippo-nodejs-sdk.git"
-    },
-    "keywords": [
-        "Storehippo",
-        "api",
-        "node.js",
-        "access key module"
-    ],
-    "author": "Rajesh Panwar <rajesh.panwar@manusis.com>)",
-    "devDependencies": {
-        "request": "2.27.0"
-    }
+  "name": "storehippo-nodejs-sdk",
+  "version": "1.0.5",
+  "description": "Access-key Module for storehippo API",
+  "main": "./lib/storehippo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/manusis/storehippo-nodejs-sdk.git"
+  },
+  "keywords": [
+    "Storehippo",
+    "api",
+    "node.js",
+    "access key module"
+  ],
+  "author": "Rajesh Panwar <rajesh.panwar@manusis.com>)",
+  "devDependencies": {
+    "request": "2.27.0",
+    "q": "1.4.1"
+  }
 }
