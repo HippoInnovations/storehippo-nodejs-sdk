@@ -10,7 +10,8 @@ The preliminary version of StoreHippo SDK.
 ~~~
 var storehippo = require('storehippo-nodejs-sdk')({
 		storename : <your-store-name>, 
-		access_key : <your-access-key>
+		access_key : <your-access-key>,
+		version: <version>
 	});
 ~~~
 
@@ -204,4 +205,88 @@ storehippo.duplicate(request, function(err, response){
 ~~~
 
 
+##  Other ways of calling command 
 
+### 1. Using promises 
+
+#### i. Request with url
+~~~
+var request = {
+    url: '/entity/<your-entity-name>',
+    data: '<data required for the command>' //JSON object
+}
+storehippo.call(request).then(function (success_response) {
+    //perform something at time of success
+}, function (error_error) {
+    //perform something at time of err
+});
+~~~
+
+##### Note: URL for different commands are :
+ 1. List - url: '/entity/your-entity-name'
+ 2. Get/Del/Update - url:'/entity/your-entity-name/record_id'
+ 3. Duplicate - url:'/entity/your-entity-name>/record_id/_duplicate'
+ 4. For custom command - url:'/entity/your-entity-name/_/name-of-the-custom_command'
+
+
+#### ii. Request with entity name and command
+~~~
+
+var request = {
+    entity: '<your-entity-name>',
+    command: '<command-name>',
+    data: <data for the command>,         //JSON object,
+    recordId: '<id-of-the-record>'       // only in case of get, del, update and duplicate command  
+}
+storehippo.call(request).then(function (success_response) {
+    //perform something at time of success
+}, function (error_error) {
+    //perform something at time of err
+});
+
+~~~
+
+### 2. Using single request object
+
+#### i.  Request with url
+
+~~~
+
+
+var request = {
+    url: '/entity/<your-entity-name>',
+    data: '<data required for the command>',    //JSON Object
+    success: function (response) {
+        //perform something in case of success 
+    },
+    error: function (response) {
+        //perform something in case of error
+    }
+}
+storehippo.call(request);
+        
+~~~
+
+##### Note: URL for different commands are :
+ 1. List - url: '/entity/your-entity-name'
+ 2. Get/Del/Update - url:'/entity/your-entity-name/record_id'
+ 3. Duplicate - url:'/entity/your-entity-name>/record_id/_duplicate'
+ 4. For custom command - url:'/entity/your-entity-name/_/name-of-the-custom_command'
+
+#### ii. Request with entity name and command
+
+~~~
+var request = {
+    entity: '<your-entity-name>',
+    command: '<command-name>',
+    data: '<data for the command>',         //JSON object,
+    recordId: '<id-of-the-record>',        // only in case of get, del, update and duplicate command  
+    success: function (response) {
+        //perform something in case of success 
+    },
+    error: function (response) {
+        //perform something in case of error
+    }
+}
+storehippo.call(request);
+~~~
