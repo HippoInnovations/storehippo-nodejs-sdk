@@ -1,6 +1,6 @@
 {
   "name": "storehippo-nodejs-sdk",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Access-key Module for storehippo API",
   "main": "./lib/storehippo",
   "repository": {
