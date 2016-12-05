@@ -24,12 +24,13 @@ var request = {
        filters: "array-of-filters",
        start: "start value",
        limit: "limit-of-record",
-    }
+    },
+    command : "list"
 }
 
 //  "array-of-filters" == [{field : "field name", value : "field-value", operator : "operator(equal, less_than, greater_than)"}]
 
-storehippo.list(request, function(err, response){
+storehippo.call(request, function(err, response){
     if(err) throw err;
     console.log(response);
 })
@@ -40,10 +41,11 @@ storehippo.list(request, function(err, response){
 ~~~
 var request = {
     entity : "your-entity-name",
-    data : "your-entity-data-object"
+    data : "your-entity-data-object",
+    command : "add"
 }
 
-storehippo.add(request, function(err, response){
+storehippo.call(request, function(err, response){
     if(err) throw err;
     console.log(response);
 })
@@ -54,10 +56,11 @@ storehippo.add(request, function(err, response){
 ~~~
 var request = {
     entity : "your-entity-name"
-    recordId : "_id-of-record"
+    recordId : "_id-of-record",
+    command : "get"
 }
 
-storehippo.get(request, function(err, response){
+storehippo.call(request, function(err, response){
     if(err) throw err;
     console.log(response);
 })
@@ -68,10 +71,11 @@ storehippo.get(request, function(err, response){
 ~~~
 var request = {
     entity : "your-entity-name"
-    recordId : "_id-of-record"
+    recordId : "_id-of-record",
+    command : "delete"
 }
 
-storehippo.del(request, function(err, response){
+storehippo.call(request, function(err, response){
     if(err) throw err;
     console.log(response);
 })
@@ -83,10 +87,11 @@ storehippo.del(request, function(err, response){
 var request = {
     entity : "your-entity-name"
     recordId : "_id-of-record"
-    data : "your-entity-data-object-to-be-updated"
+    data : "your-entity-data-object-to-be-updated",
+    command : "edit"
 }
 
-storehippo.update(request, function(err, response){
+storehippo.call(request, function(err, response){
     if(err) throw err;
     console.log(response);
 })
@@ -98,10 +103,11 @@ storehippo.update(request, function(err, response){
 var request = {
     entity : "your-entity-name"
     recordId : "_id-of-record"
-    data : "to override the existing field of record"
+    data : "to override the existing field of record",
+    command : "duplicate"
 }
 
-storehippo.duplicate(request, function(err, response){
+storehippo.call(request, function(err, response){
     if(err) throw err;
     console.log(response);
 })
@@ -113,10 +119,11 @@ storehippo.duplicate(request, function(err, response){
 var request = {
     entity : "your-entity-name"
     recordId : "_id-of-record"
-    field : "field_name"
+    field : "field_name",
+    command : "list"
 }
 
-storehippo.list(request, function(err, response){
+storehippo.call(request, function(err, response){
     if(err) throw err;
     console.log(response);
 })
@@ -129,10 +136,11 @@ var request = {
     entity : "your-entity-name"
     recordId : "_id-of-record"
     field : "field_name",
-    data : "your-field-data-object"
+    data : "your-field-data-object",
+    command : "add"
 }
 
-storehippo.add(request, function(err, response){
+storehippo.call(request, function(err, response){
     if(err) throw err;
     console.log(response);
 })
@@ -145,10 +153,11 @@ var request = {
     entity : "your-entity-name"
     recordId : "_id-of-record"
     field : "field_name",
-    fieldId : "_id_of_field_data"
+    fieldId : "_id_of_field_data",
+    command : "get"
 }
 
-storehippo.get(request, function(err, response){
+storehippo.call(request, function(err, response){
     if(err) throw err;
     console.log(response);
 })
@@ -161,10 +170,11 @@ var request = {
     entity : "your-entity-name"
     recordId : "_id-of-record"
     field : "field_name",
-    fieldId : "_id_of_field_data"
+    fieldId : "_id_of_field_data",
+    command : "delete"
 }
 
-storehippo.del(request, function(err, response){
+storehippo.call(request, function(err, response){
     if(err) throw err;
     console.log(response);
 })
@@ -178,10 +188,11 @@ var request = {
     recordId : "_id-of-record"
     field : "field_name",
     fieldId : "_id_of_field_data"
-    data : "your-field-data-object-to-be-updated"
+    data : "your-field-data-object-to-be-updated",
+    command : "edit"
 }
 
-storehippo.update(request, function(err, response){
+storehippo.call(request, function(err, response){
     if(err) throw err;
     console.log(response);
 })
@@ -195,98 +206,15 @@ var request = {
     recordId : "_id-of-record"
     field : "field_name",
     fieldId : "_id_of_field_data"
-    data : "data to override the existing field"
+    data : "data to override the existing field",
+    command : "duplicate"
 }
 
-storehippo.duplicate(request, function(err, response){
+storehippo.call(request, function(err, response){
     if(err) throw err;
     console.log(response);
 })
 ~~~
 
 
-##  Other ways of calling command 
 
-### 1. Using promises 
-
-#### i. Request with url
-~~~
-var request = {
-    url: '/entity/<your-entity-name>',
-    data: '<data required for the command>' //JSON object
-}
-storehippo.call(request).then(function (success_response) {
-    //perform something at time of success
-}, function (error_error) {
-    //perform something at time of err
-});
-~~~
-
-##### Note: URL for different commands are :
- 1. List - url: '/entity/your-entity-name'
- 2. Get/Del/Update - url:'/entity/your-entity-name/record_id'
- 3. Duplicate - url:'/entity/your-entity-name>/record_id/_duplicate'
- 4. For custom command - url:'/entity/your-entity-name/_/name-of-the-custom_command'
-
-
-#### ii. Request with entity name and command
-~~~
-
-var request = {
-    entity: '<your-entity-name>',
-    command: '<command-name>',
-    data: <data for the command>,         //JSON object,
-    recordId: '<id-of-the-record>'       // only in case of get, del, update and duplicate command  
-}
-storehippo.call(request).then(function (success_response) {
-    //perform something at time of success
-}, function (error_error) {
-    //perform something at time of err
-});
-
-~~~
-
-### 2. Using single request object
-
-#### i.  Request with url
-
-~~~
-
-
-var request = {
-    url: '/entity/<your-entity-name>',
-    data: '<data required for the command>',    //JSON Object
-    success: function (response) {
-        //perform something in case of success 
-    },
-    error: function (response) {
-        //perform something in case of error
-    }
-}
-storehippo.call(request);
-        
-~~~
-
-##### Note: URL for different commands are :
- 1. List - url: '/entity/your-entity-name'
- 2. Get/Del/Update - url:'/entity/your-entity-name/record_id'
- 3. Duplicate - url:'/entity/your-entity-name>/record_id/_duplicate'
- 4. For custom command - url:'/entity/your-entity-name/_/name-of-the-custom_command'
-
-#### ii. Request with entity name and command
-
-~~~
-var request = {
-    entity: '<your-entity-name>',
-    command: '<command-name>',
-    data: '<data for the command>',         //JSON object,
-    recordId: '<id-of-the-record>',        // only in case of get, del, update and duplicate command  
-    success: function (response) {
-        //perform something in case of success 
-    },
-    error: function (response) {
-        //perform something in case of error
-    }
-}
-storehippo.call(request);
-~~~
