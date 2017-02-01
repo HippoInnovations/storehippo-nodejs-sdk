@@ -24,6 +24,7 @@ var request = {
        filters: "array-of-filters",
        start: "start value",
        limit: "limit-of-record",
+       sort : "field-name"       // default ascending, if want in descending order, add prefix "-" in field-name
     },
     command : "list"
 }
