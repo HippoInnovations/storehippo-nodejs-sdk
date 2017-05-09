@@ -8,9 +8,21 @@ The preliminary version of StoreHippo SDK.
 ## Setup
 
 ~~~
+StoreHippo supports two types of authentication
+
+1. Access Key
+
 var storehippo = require('storehippo-nodejs-sdk')({
 		storename : <your-store-name>, 
 		access_key : <your-access-key>,
+		version: <version>
+	});
+
+2. Access Token
+
+var storehippo = require('storehippo-nodejs-sdk')({
+		storename : <your-store-name>,
+		access_token : <your-access-token>,
 		version: <version>
 	});
 ~~~
