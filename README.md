@@ -228,6 +228,30 @@ storehippo.call(request, function(err, response){
     console.log(response);
 })
 ~~~
+##  13. to upload file using file url
+
+~~~
+var request = {
+    file_url : "valid_url_of_file"
+}
+
+storehippo.upload(request, function(err, response){
+    if(err) throw err;
+    console.log(response);
+})
+~~~
+##  14. to upload file using base64
+
+~~~
+var request = {
+    data : "base64_data",
+    type : "file_type" // optional 
+}
+
+storehippo.upload(request, function(err, response){
+    if(err) throw err;
+    console.log(response);
+})
 
 
 
