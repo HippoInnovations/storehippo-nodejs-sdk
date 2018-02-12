@@ -1,6 +1,6 @@
 {
   "name": "storehippo-nodejs-sdk",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "Access-key Module for storehippo API",
   "main": "./lib/storehippo",
   "repository": {
@@ -16,7 +16,7 @@
     "access key module"
   ],
   "author": "Rajesh Panwar <rajesh.panwar@manusis.com>)",
-  "devDependencies": {
+  "dependencies": {
     "request": "2.27.0",
     "q": "1.4.1"
   }
