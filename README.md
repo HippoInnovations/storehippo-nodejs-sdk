@@ -1,10 +1,6 @@
 storehippo-nodejs-sdk
 ================
 
-
-The preliminary version of StoreHippo SDK.
-
-
 ## Setup
 
 ~~~
