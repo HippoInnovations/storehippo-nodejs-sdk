@@ -106,23 +106,7 @@ storehippo.call(request, function(err, response){
 })
 ~~~
 
-##  6. to duplicate record from an entity
-
-~~~
-var request = {
-    entity : "your-entity-name"
-    recordId : "_id-of-record"
-    data : "to override the existing field of record",
-    command : "duplicate"
-}
-
-storehippo.call(request, function(err, response){
-    if(err) throw err;
-    console.log(response);
-})
-~~~
-
-##  7. to list field data of a record of an entity
+##  6. to list field data of a record of an entity
 
 ~~~
 var request = {
@@ -138,7 +122,7 @@ storehippo.call(request, function(err, response){
 })
 ~~~
 
-##  8. to add field data into a record of an entity
+##  7. to add field data into a record of an entity
 
 ~~~
 var request = {
@@ -155,7 +139,7 @@ storehippo.call(request, function(err, response){
 })
 ~~~
 
-##  9. to get field data of a record of an entity
+##  8. to get field data of a record of an entity
 
 ~~~
 var request = {
@@ -172,7 +156,7 @@ storehippo.call(request, function(err, response){
 })
 ~~~
 
-##  10. to delete field data of a record of an entity
+##  9. to delete field data of a record of an entity
 
 ~~~
 var request = {
@@ -189,7 +173,7 @@ storehippo.call(request, function(err, response){
 })
 ~~~
 
-##  11. to update field data of a record of an entity
+##  10. to update field data of a record of an entity
 
 ~~~
 var request = {
@@ -206,48 +190,3 @@ storehippo.call(request, function(err, response){
     console.log(response);
 })
 ~~~
-
-##  12. to duplicate field data of a record of an entity
-
-~~~
-var request = {
-    entity : "your-entity-name"
-    recordId : "_id-of-record"
-    field : "field_name",
-    fieldId : "_id_of_field_data"
-    data : "data to override the existing field",
-    command : "duplicate"
-}
-
-storehippo.call(request, function(err, response){
-    if(err) throw err;
-    console.log(response);
-})
-~~~
-##  13. to upload file using file url
-
-~~~
-var request = {
-    file_url : "valid_url_of_file"
-}
-
-storehippo.upload(request, function(err, response){
-    if(err) throw err;
-    console.log(response);
-})
-~~~
-##  14. to upload file using base64
-
-~~~
-var request = {
-    data : "base64_data",
-    type : "file_type" // optional 
-}
-
-storehippo.upload(request, function(err, response){
-    if(err) throw err;
-    console.log(response);
-})
-
-
-
