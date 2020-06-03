@@ -43,6 +43,16 @@ storehippo.call(request, function(err, response){
     if(err) throw err;
     console.log(response);
 })
+
+Example Requests:
+var request = {
+     entity: "ms.products",
+     command: "list",
+     query: {
+        filters: [{field: 'alias', value: 'test'}],
+	limit: 1
+     }
+}
 ~~~
 
 ##  2. to add record to an entity
